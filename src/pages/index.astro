@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="BabelStacks"
+  bareTitle
+  description="BabelStacks builds tools for working with language, text, and structured knowledge."
+>
+  <section class="hero wrap">
+    <div class="prose">
+      <h1>BabelStacks</h1>
+      <p class="lede">
+        Tools for working with language, text, and structured knowledge.
+      </p>
+      <p>
+        <!-- TODO: replace with real positioning copy. -->
+        This site is live and deploying from <code>main</code>. Content is
+        placeholder for now.
+      </p>
+      <p>
+        <a href="https://github.com/BabelStacks" rel="noopener">See our work on GitHub →</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding-block: clamp(3rem, 8vw, 6rem) 1rem;
+  }
+
+  .lede {
+    font-size: clamp(1.1rem, 1rem + 0.6vw, 1.35rem);
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+</style>

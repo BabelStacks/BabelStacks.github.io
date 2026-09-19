@@ -1,0 +1,34 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap row">
+    <p>© {year} BabelStacks</p>
+    <p>
+      <a href="https://github.com/BabelStacks" rel="me noopener">GitHub</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 5rem;
+    padding-block: 1.75rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .row p {
+    margin: 0;
+  }
+</style>
