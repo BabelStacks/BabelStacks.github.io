@@ -11,7 +11,6 @@ export const SITE = {
 } as const;
 
 /**
- * TODO: replace with the real address before announcing the site.
  * Referenced by the contact page, the footer, and the home page, so changing
  * it here updates every mention.
  */
