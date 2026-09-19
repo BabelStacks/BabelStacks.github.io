@@ -1,22 +1,78 @@
 ---
 import Base from '../layouts/Base.astro';
+import { CONTACT_EMAIL, GITHUB_ORG } from '../config';
 ---
 
-<Base title="About" description="About BabelStacks.">
+<Base
+  title="About"
+  description="What BabelStacks works on, and the thinking behind it."
+>
   <section class="wrap page">
     <div class="prose">
-      <h1>About</h1>
+      <h1 class="page-title">About</h1>
+      <p class="lede">
+        We build software for people who work with texts and collections.
+      </p>
+
+      <h2>The problem</h2>
       <p>
-        <!-- TODO: replace with real copy. -->
-        Placeholder. This page exists to prove out routing, the shared layout,
-        and navigation state.
+        Mass digitisation solved acquisition. A researcher today can reach more
+        primary material from a laptop than a scholar of the last century could
+        reach in a career. What did not follow was a matching improvement in
+        how that material can be searched, linked, and cited.
+      </p>
+      <p>
+        A scanned volume that cannot be searched is closer to an unopened box
+        than to a book. An OCR layer with no correction pass produces
+        confident, wrong answers. A collection with no stable identifiers
+        cannot be cited, and so cannot really be used as evidence.
+      </p>
+
+      <h2>The name</h2>
+      <p>
+        In Borges’ <em>The Library of Babel</em>, the library contains every
+        possible book. Somewhere in it is the true catalogue of its own
+        holdings — and also every plausible forgery of that catalogue. Total
+        information, zero navigability.
+      </p>
+      <p>
+        We took the name because the joke is on us: the modern archive has the
+        same shape. Our interest is in the catalogue, not the stacks.
+      </p>
+
+      <h2>How we work</h2>
+      <ul>
+        <li>
+          <strong>Open where we can.</strong> Research tools that cannot be
+          inspected cannot be trusted, and results produced with them cannot be
+          reproduced.
+        </li>
+        <li>
+          <strong>Formats over platforms.</strong> Work should outlive the
+          software that produced it. We prefer plain text, documented schemas,
+          and exports that do not need us.
+        </li>
+        <li>
+          <strong>Narrow tools.</strong> A small program that does one part of
+          the pipeline well composes with the rest. A platform that does
+          everything usually does not.
+        </li>
+        <li>
+          <strong>Built with the people using it.</strong> Domain knowledge
+          lives with librarians, archivists, and editors — not with us.
+        </li>
+      </ul>
+
+      <h2>Get in touch</h2>
+      <p>
+        We are in early development and open to conversations — collaborations,
+        pilot projects, or a description of the problem you keep working around.
+      </p>
+      <p>
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+        &nbsp;·&nbsp;
+        <a href={GITHUB_ORG} rel="noopener">GitHub</a>
       </p>
     </div>
   </section>
 </Base>
-
-<style>
-  .page {
-    padding-block: clamp(2.5rem, 6vw, 4rem) 1rem;
-  }
-</style>

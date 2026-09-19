@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import { CONTACT_EMAIL, GITHUB_ORG } from '../config';
+---
+
+<Base
+  title="Contact"
+  description="How to reach BabelStacks."
+>
+  <section class="wrap page">
+    <div class="prose">
+      <h1 class="page-title">Contact</h1>
+      <p class="lede">
+        We are in early development and reading everything that comes in.
+      </p>
+
+      <h2>Email</h2>
+      <p>
+        <a class="email" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+      </p>
+
+      <h2>Code</h2>
+      <p>
+        Repositories and issue trackers live at
+        <a href={GITHUB_ORG} rel="noopener">github.com/BabelStacks</a>. For
+        anything about a specific tool, an issue there is usually faster than
+        email.
+      </p>
+
+      <h2>What is useful to include</h2>
+      <p>
+        If you are writing about a possible collaboration or a problem in your
+        own work, these help us give a straight answer:
+      </p>
+      <ul>
+        <li>The material — what it is, roughly how much, and its current form</li>
+        <li>What you are trying to do with it that you currently cannot</li>
+        <li>Any constraints: licensing, access restrictions, deadlines</li>
+      </ul>
+      <p>A rough description is fine. We would rather hear early than polished.</p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .email {
+    font-size: 1.1rem;
+  }
+</style>

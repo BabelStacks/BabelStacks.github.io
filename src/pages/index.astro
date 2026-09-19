@@ -1,25 +1,55 @@
 ---
 import Base from '../layouts/Base.astro';
+import { SITE, CONTACT_EMAIL, GITHUB_ORG } from '../config';
 ---
 
-<Base
-  title="BabelStacks"
-  bareTitle
-  description="BabelStacks builds tools for working with language, text, and structured knowledge."
->
-  <section class="hero wrap">
+<Base title={SITE.name} bareTitle description={SITE.description}>
+  <section class="wrap hero">
     <div class="prose">
-      <h1>BabelStacks</h1>
+      <h1>Tools for digital humanities</h1>
       <p class="lede">
-        Tools for working with language, text, and structured knowledge.
+        Archives are not short of material. They are short of ways in.
+        BabelStacks builds software for working with texts, collections, and
+        the structures that make them navigable.
       </p>
       <p>
-        <!-- TODO: replace with real positioning copy. -->
-        This site is live and deploying from <code>main</code>. Content is
-        placeholder for now.
+        We work on retrieval, indexing, and the unglamorous infrastructure
+        that sits between a scanned page and a citable source.
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="prose">
+      <h2>Where things stand</h2>
+      <div class="notice">
+        <p>
+          <strong>We are early.</strong> Tools are in development and nothing
+          is released yet. If your work overlaps with ours — or you have an
+          archive that needs wrangling — we would like to hear from you.
+        </p>
+        <p>
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+          &nbsp;·&nbsp;
+          <a href={GITHUB_ORG} rel="noopener">GitHub</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="prose">
+      <h2>The name</h2>
+      <p>
+        Borges imagined a library containing every book that could possibly be
+        written. It holds all knowledge and is useless, because nothing in it
+        can be found. The catalogue is in there too, along with every false
+        catalogue.
       </p>
       <p>
-        <a href="https://github.com/BabelStacks" rel="noopener">See our work on GitHub →</a>
+        That is the problem we care about. Digitisation has given us the
+        library; it has not given us the catalogue.
+        <a href="/about/">More about how we approach it →</a>
       </p>
     </div>
   </section>
@@ -27,12 +57,6 @@ import Base from '../layouts/Base.astro';
 
 <style>
   .hero {
-    padding-block: clamp(3rem, 8vw, 6rem) 1rem;
-  }
-
-  .lede {
-    font-size: clamp(1.1rem, 1rem + 0.6vw, 1.35rem);
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
+    padding-block: clamp(3rem, 8vw, 5.5rem) 0;
   }
 </style>

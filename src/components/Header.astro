@@ -1,21 +1,20 @@
 ---
-const links = [
-  { href: '/', label: 'Home' },
-  { href: '/about/', label: 'About' },
-];
+import { NAV, SITE } from '../config';
 
-// Normalize so "/about" and "/about/" both mark the same link current.
+// Normalize so "/about" and "/about/" mark the same link current, and so a
+// nested path like /blog/some-post still highlights "Writing".
 const here = Astro.url.pathname.replace(/\/+$/, '') || '/';
 ---
 
 <header class="site-header">
   <div class="wrap bar">
-    <a class="brand" href="/">BabelStacks</a>
+    <a class="brand" href="/">{SITE.name}</a>
     <nav aria-label="Main">
       {
-        links.map((link) => {
+        NAV.map((link) => {
           const target = link.href.replace(/\/+$/, '') || '/';
-          const current = here === target;
+          const current =
+            target === '/' ? here === '/' : here === target || here.startsWith(target + '/');
           return (
             <a href={link.href} aria-current={current ? 'page' : undefined}>
               {link.label}
@@ -55,7 +54,8 @@ const here = Astro.url.pathname.replace(/\/+$/, '') || '/';
 
   nav {
     display: flex;
-    gap: 1.25rem;
+    gap: 1.1rem;
+    flex-wrap: wrap;
   }
 
   nav a {

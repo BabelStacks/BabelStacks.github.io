@@ -27,14 +27,53 @@ branch").
 
 ```
 src/
+  config.ts               site constants — contact email, nav, tool statuses
+  content.config.ts       schemas for the tools and blog collections
   layouts/Base.astro      shared shell — <head>, meta, header, footer
-  components/             Header, Footer
-  pages/                  file-based routes (index, about, 404)
+  components/             Header, Footer, ToolCard
+  content/
+    tools/                one Markdown file per tool
+    blog/                 one Markdown file per post
+  pages/                  file-based routes
   styles/global.css       design tokens + base styles
 public/
   CNAME                   custom domain — must match `site` in astro.config.mjs
   favicon.svg
 ```
+
+## Pages
+
+| Route | Source |
+|---|---|
+| `/` | `src/pages/index.astro` |
+| `/about/` | `src/pages/about.astro` |
+| `/tools/` | `src/pages/tools/index.astro` (lists the `tools` collection) |
+| `/blog/` | `src/pages/blog/index.astro` |
+| `/blog/<slug>/` | `src/pages/blog/[...slug].astro` |
+| `/contact/` | `src/pages/contact.astro` |
+| 404 | `src/pages/404.astro` |
+
+## Adding content
+
+Copy `src/content/tools/_example.md` or `src/content/blog/_example.md` and
+edit the frontmatter. Both examples are `draft: true` so they stay unpublished;
+set `draft: false` (or remove it) to publish. Frontmatter is validated at build
+time against `src/content.config.ts` — a bad date or a missing field fails the
+build rather than shipping a broken page.
+
+Tool cards sort by `order` (lower first), then title. `status` is one of
+`planned`, `building`, `beta`, `released` and controls the badge.
+
+## Contact email
+
+Set in one place: `CONTACT_EMAIL` in `src/config.ts`. The home, about, contact
+pages and the footer all read it from there.
+
+## Languages
+
+`astro.config.mjs` declares `en` (default) and `zh` with
+`prefixDefaultLocale: false`, so English stays at `/` and no URLs change when
+Chinese is added. Only English content exists today.
 
 ## Adding interactivity
 

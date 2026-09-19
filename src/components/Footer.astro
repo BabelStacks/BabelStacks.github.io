@@ -1,12 +1,15 @@
 ---
+import { SITE, GITHUB_ORG, CONTACT_EMAIL } from '../config';
+
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
   <div class="wrap row">
-    <p>© {year} BabelStacks</p>
-    <p>
-      <a href="https://github.com/BabelStacks" rel="me noopener">GitHub</a>
+    <p>© {year} {SITE.name}</p>
+    <p class="links">
+      <a href={`mailto:${CONTACT_EMAIL}`}>Email</a>
+      <a href={GITHUB_ORG} rel="me noopener">GitHub</a>
     </p>
   </div>
 </footer>
@@ -30,5 +33,10 @@ const year = new Date().getFullYear();
 
   .row p {
     margin: 0;
+  }
+
+  .links {
+    display: flex;
+    gap: 1rem;
   }
 </style>

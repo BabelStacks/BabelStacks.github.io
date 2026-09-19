@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import { CONTACT_EMAIL, GITHUB_ORG } from '../../config';
+
+const tools = (await getCollection('tools', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order || a.data.title.localeCompare(b.data.title),
+);
+---
+
+<Base
+  title="Tools"
+  description="Software BabelStacks is building for digital humanities work."
+>
+  <section class="wrap page">
+    <div class="prose">
+      <h1 class="page-title">Tools</h1>
+      <p class="lede">
+        What we are building, and how far along each piece is.
+      </p>
+    </div>
+
+    {
+      tools.length > 0 ? (
+        <ul class="card-grid">
+          {tools.map((tool) => (
+            <ToolCard
+              title={tool.data.title}
+              summary={tool.data.summary}
+              status={tool.data.status}
+              repo={tool.data.repo}
+              site={tool.data.site}
+              docs={tool.data.docs}
+            />
+          ))}
+        </ul>
+      ) : (
+        <div class="prose">
+          <div class="notice">
+            <p>
+              <strong>Nothing listed yet.</strong> We are heads-down on the
+              first tools and will publish them here as they become usable
+              rather than when they are announced.
+            </p>
+            <p>
+              Work in progress is visible on{' '}
+              <a href={GITHUB_ORG} rel="noopener">GitHub</a>, and{' '}
+              <a href={`mailto:${CONTACT_EMAIL}`}>we answer email</a>.
+            </p>
+          </div>
+        </div>
+      )
+    }
+  </section>
+</Base>
